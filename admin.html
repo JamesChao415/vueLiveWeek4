@@ -68,7 +68,10 @@
         <p>目前有{{ products.length }}項產品</p>
       </div>
       <!-- Modal -->
-      <div id="productModal" ref="productModal" class="modal fade" tabindex="-1" aria-labelledby="productModalLabel"
+      <product-modal :temp-product="tempProduct"
+      @update-product="updateProduct" @del-product="delProduct"></product-modal>
+
+      <!-- <div id="productModal" ref="productModal" class="modal fade" tabindex="-1" aria-labelledby="productModalLabel"
            aria-hidden="true">
         <div class="modal-dialog modal-xl">
           <div class="modal-content border-0">
@@ -189,8 +192,14 @@
             </div>
           </div>
         </div>
+      </div> -->
+      <!-- pagination -->
+      <div class="d-flex justify-content-center">
+        <pagination :page="pagination" @get-product="getProducts"></pagination>
       </div>
-      <!-- Modal -->
+      
+
+
     </div>
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.9.1/axios.min.js'
